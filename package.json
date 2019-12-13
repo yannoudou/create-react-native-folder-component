@@ -3,7 +3,7 @@
 	"displayName": "create-react-native-folder-component",
 	"description": "create react native folder component with index.d.ts",
 	"version": "0.0.1",
-	"publisher": "tobiKl",
+	"publisher": "yannntch",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
