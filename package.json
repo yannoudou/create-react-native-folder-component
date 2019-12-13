@@ -1,0 +1,58 @@
+{
+	"name": "create-react-native-folder-component",
+	"displayName": "create-react-native-folder-component",
+	"description": "create react native folder component with index.d.ts",
+	"version": "0.0.1",
+	"publisher": "tobiKl",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.createReactNativeFolderComponentFast",
+		"onCommand:extension.createReactNativeFolderComponent"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.createReactNativeFolderComponentFast",
+				"title": "Rapide React native folder Component"
+			},
+			{
+				"command": "extension.createReactNativeFolderComponent",
+				"title": "React native folder Component"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "explorerResourceIsFolder",
+					"command": "extension.createReactNativeFolderComponentFast",
+					"group": "c_React@41"
+				},
+				{
+					"when": "explorerResourceIsFolder",
+					"command": "extension.createReactNativeFolderComponent",
+					"group": "c_React@4189"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.41.0",
+		"eslint": "^6.6.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"vscode-test": "^1.2.2"
+	}
+}
