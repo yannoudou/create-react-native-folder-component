@@ -252,7 +252,7 @@ function componnentStringindex_js(name, number, pure) {
 		let _vad = "import React, { " + add + " } from 'react';" + "\n" +
 			"import TextContainer from './TextContainer';" + "\n" +
 			"// import withObservables from '@nozbe/with-observables'" + "\n" + "\n" + "\n" +
-			"export default class TextLogin extends " + add + "  {" + "\n" +
+			"export default class " + name + " extends " + add + "  {" + "\n" +
 			"render() {" + "\n" +
 			"return <TextContainer {...this.props} />" + "\n" +
 			"}" + "\n" +
@@ -264,7 +264,7 @@ function componnentStringindex_js(name, number, pure) {
 			"//       post: post.observe()," + "\n" +
 			"//       comments: post.comments.observe()," + "\n" +
 			"//   }))" + "\n" + "\n" +
-			"//   export default enhance(TextLogin)";
+			"//   export default enhance(" + name + ")";
 
 		toWrite = _vad;
 
