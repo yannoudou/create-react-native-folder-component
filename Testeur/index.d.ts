@@ -1,7 +1,7 @@
 import { PureComponent } from 'react';
 import { StyleProp, TextStyle,ViewStyle } from 'react-native';
 
-interface AntoineProps {
+interface TesteurProps {
     // different types
     // linkify?: object; linkStyle?: StyleProp<TextStyle>; 
     // containerStyle?: StyleProp<ViewStyle>;  onPress?: (url: string, text: string) => void;
@@ -10,9 +10,9 @@ interface AntoineProps {
 
 
 
-declare class Antoine extends PureComponent<AntoineProps> {
+declare class Testeur extends PureComponent<TesteurProps> {
 
 }
 
 
-export default Antoine;
+export default Testeur;
