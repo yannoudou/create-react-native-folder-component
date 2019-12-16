@@ -167,7 +167,7 @@ function writeFile(file, data) {
 function componnentStringindex_js(name, number, pure) {
 	let toWrite = null
 	if (number === 1) {
-		let vad = "export { default } from './" + name + "';";
+		let vad = "export { default } from './" + name + "Logic';";
 		toWrite = vad;
 	}
 
@@ -200,91 +200,75 @@ function componnentStringindex_js(name, number, pure) {
 
 
 	if (number === 3) {
-		if (pure) {
-			var val = "import React, { PureComponent } from 'react';" + "\n" +
-				"import { Text, View, TouchableOpacity } from 'react-native';" + "\n" +
-				"import EStyleSheet from 'react-native-extended-stylesheet';" + "\n" +
-				"import FeatherIcon from 'react-native-vector-icons/Feather';" + "\n" + "\n" + "\n" +
-				"\n" +
-				"export default class " + name + " extends PureComponent {" + "\n" +
-				"    constructor(props) {" + "\n" +
-				"        super(props)" + "\n" +
-				"\n" +
-				"        this.state = {" +
-				"\n" + "\n" +
-				"        };" +
-				"\n" + "\n" +
-				"        this.funct=this.funct.bind(this);" + "\n" +
-				"\n" +
-				"    }" +
-				"\n" +
-				"\n" +
-				"\n" +
-				"    render() {" + "\n" +
-				"        return (" + "\n" +
-				"            <View style={styles.containerStyle} >" + "\n" +
-				"                <Text> textInComponent </Text>" + "\n" +
-				"            </View>" + "\n" +
-				"        )" + "\n" +
-				"    }" + "\n" +
-				"}" + "\n" +
-				"\n" +
-				"\n" +
-				"\n" +
-				"const styles = EStyleSheet.create({" + "\n" +
-				"    containerStyle:{" + "\n" +
-				"\n" +
-				"    }," + "\n" +
-				"    toptext: {  fontFamily: 'c-black', fontSize: '0.95rem',  }," +
-				"\n" +
-				"})" + "\n" +
-				"\n";
-		} else {
-			var val = "import React, { Component } from 'react';" + "\n" +
-				"import { Text, View, TouchableOpacity } from 'react-native';" + "\n" +
-				"import EStyleSheet from 'react-native-extended-stylesheet';" + "\n" +
-				"import FeatherIcon from 'react-native-vector-icons/Feather';" + "\n" +
-				"\n" + "\n" +
-				"export default class " + name + " extends Component {" + "\n" +
-				"    constructor(props) {" + "\n" +
-				"        super(props)" + "\n" +
-				"\n" +
-				"        this.state = {" +
-				"\n" + "\n" +
-				"        };" +
-				"\n" + "\n" +
-				"        this.funct=this.funct.bind(this);" +
-				"\n" +
-				"    }" +
-				"\n" +
-				"\n" +
-				"\n" + "\n" +
-				"    render() {" + "\n" +
-				"        return (" + "\n" +
-				"            <View style={styles.containerStyle} >" + "\n" +
-				"                <Text> textInComponent </Text>" + "\n" +
-				"            </View>" + "\n" +
-				"        )" + "\n" +
-				"    }" + "\n" +
-				"}" + "\n" +
-				"\n" +
-				"\n" +
-				"\n" +
-				"const styles = EStyleSheet.create({" + "\n" +
-				"    containerStyle:{" + "\n" +
-				"\n" +
-				"    }," + "\n" +
-				"    toptext: {  fontFamily: 'c-black', fontSize: '0.95rem',  }," + "\n" +
-				"\n" +
-				"})" + "\n" +
-				"\n";
+		// if (pure) {
+		let add = (pure) ? "PureComponent" : "Component";
+		var val = "import React, { " + add + " } from 'react';" + "\n" +
+			"import { Text, View, TouchableOpacity } from 'react-native';" + "\n" + "\n" + "\n" + "\n" + "\n" + "\n" +
+			"import EStyleSheet from 'react-native-extended-stylesheet';" + "\n" +
+			"import FeatherIcon from 'react-native-vector-icons/Feather';" + "\n" + "\n" + "\n" +
+			"\n" +
+			"export default class " + name + 'Container' + " extends " + add + "  {" + "\n" +
+			"    constructor(props) {" + "\n" +
+			"        super(props)" + "\n" +
+			"\n" +
+			"        this.state = {" +
+			"\n" + "\n" +
+			"        };" +
+			"\n" + "\n" +
+			"        // this.funct=this.funct.bind(this);" + "\n" +
+			"\n" +
+			"    }" +
+			"\n" +
+			"\n" +
+			"\n" +
+			"    render() {" + "\n" +
+			"        return (" + "\n" +
+			"            <View style={styles.containerStyle} >" + "\n" +
+			"                <Text> textInComponent </Text>" + "\n" +
+			"            </View>" + "\n" +
+			"        )" + "\n" +
+			"    }" + "\n" +
+			"}" + "\n" +
+			"\n" +
+			"\n" +
+			"\n" +
+			"const styles = EStyleSheet.create({" + "\n" +
+			"    containerStyle:{" + "\n" +
+			"\n" +
+			"    }," + "\n" +
+			"    toptext: {  fontFamily: 'c-black', fontSize: '0.95rem',  }," +
+			"\n" +
+			"})" + "\n" +
+			"\n";
 
-		}
 
 		toWrite = val;
 
 	}
 
+	if (number === 4) {
+		let add = (pure) ? "PureComponent" : "Component";
+
+		let _vad = "import React, { " + add + " } from 'react';" + "\n" +
+			"import TextContainer from './TextContainer';" + "\n" +
+			"// import withObservables from '@nozbe/with-observables'" + "\n" + "\n" + "\n" +
+			"export default class TextLogin extends " + add + "  {" + "\n" +
+			"render() {" + "\n" +
+			"return <TextContainer {...this.props} />" + "\n" +
+			"}" + "\n" +
+			"}" + "\n" + "\n" + "\n" + "\n" +
+			"// const enhance = withObservables(['search'], ({ database, search }) => ({" + "\n" +
+			"//     blogs: database.collections " + "\n" +
+			"//      .get('blogs')" + "\n" +
+			"//       .query(Q.where('name', Q.like(`%${Q.sanitizeLikeString(search)}%`)))," + "\n" +
+			"//       post: post.observe()," + "\n" +
+			"//       comments: post.comments.observe()," + "\n" +
+			"//   }))" + "\n" + "\n" +
+			"//   export default enhance(TextLogin)";
+
+		toWrite = _vad;
+
+	}
 
 	return toWrite;
 
@@ -326,7 +310,8 @@ function createComponent(name, pure, withSrc, _path) {
 	const file_name_index_js = path.join(dir_path, component_name, "index.js");
 	const file_name_index_ts = path.join(dir_path, component_name, "index.d.ts");
 	const file_name_src = path.join(dir_path, component_name, 'src');
-	const file_name_component = path.join(dir_path, component_name, component_name + ".js");
+	const file_name_component = path.join(dir_path, component_name, component_name + "Container.js");
+	const file_name_component_2 = path.join(dir_path, component_name, component_name + "Logic.js");
 
 
 
@@ -375,6 +360,25 @@ function createComponent(name, pure, withSrc, _path) {
 		vscode.window.showInformationMessage('Error');
 	});
 
+	const _file___Promise_Component_ = createFile(file_name_component_2);
+	_file___Promise_Component_.then((file) => {
+		const write_Promise_Component = writeFile(file, componnentStringindex_js(component_name, 4, pure));
+
+		write_Promise_Component.then(() => {
+			fs.close(file, function (err) {
+				if (err) {
+					console.log(err);
+				}
+			});
+		}).catch((err) => {
+			console.log(err);
+			vscode.window.showInformationMessage('Error');
+		});
+
+	}).catch((err) => {
+		console.log(err);
+		vscode.window.showInformationMessage('Error');
+	});
 
 
 	const _file_Promise_Component_ = createFile(file_name_component);
